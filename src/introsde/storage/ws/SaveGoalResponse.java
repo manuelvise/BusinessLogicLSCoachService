@@ -3,20 +3,21 @@ package introsde.storage.ws;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for saveMeasureDefinition complex type.
+ * <p>Java class for saveGoalResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="saveMeasureDefinition">
+ * &lt;complexType name="saveGoalResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="measureDefinitionJson" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="Goal" type="{http://ws.storage.introsde/}goal" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,35 +27,36 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "saveMeasureDefinition", propOrder = {
-    "measureDefinitionJson"
+@XmlType(name = "saveGoalResponse", propOrder = {
+    "goal"
 })
-public class SaveMeasureDefinition {
+public class SaveGoalResponse {
 
-    protected String measureDefinitionJson;
+    @XmlElement(name = "Goal")
+    protected Goal goal;
 
     /**
-     * Gets the value of the measureDefinitionJson property.
+     * Gets the value of the goal property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Goal }
      *     
      */
-    public String getMeasureDefinitionJson() {
-        return measureDefinitionJson;
+    public Goal getGoal() {
+        return goal;
     }
 
     /**
-     * Sets the value of the measureDefinitionJson property.
+     * Sets the value of the goal property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Goal }
      *     
      */
-    public void setMeasureDefinitionJson(String value) {
-        this.measureDefinitionJson = value;
+    public void setGoal(Goal value) {
+        this.goal = value;
     }
 
 }

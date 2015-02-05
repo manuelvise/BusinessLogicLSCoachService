@@ -1,8 +1,5 @@
 package introsde.business.ws;
 
-import introsde.business.model.Activities;
-import introsde.business.model.Profile;
-import introsde.business.model.Weights;
 import introsde.storage.ws.MeasureDefinition;
 import introsde.storage.ws.Person;
 
@@ -17,7 +14,7 @@ import javax.jws.soap.SOAPBinding.Style;
 import javax.jws.soap.SOAPBinding.Use;
 
 @WebService
-@SOAPBinding
+@SOAPBinding(style = Style.DOCUMENT, use=Use.LITERAL) //optional
 public interface BusinessLogicLSCoach {
 	
 	@WebMethod(operationName="syncWeightToDB")
@@ -30,9 +27,7 @@ public interface BusinessLogicLSCoach {
 	
 	@WebMethod(operationName="setupNewDefinitioMeasure")
     @WebResult(name="newMeasureDefinition") 
-    public MeasureDefinition setupNewDefinitioMeasure(@WebParam(name="name") String name, @WebParam(name="type") String type);
-
-
+    public MeasureDefinition setupNewDefinitionMeasure(@WebParam(name="name") String name, @WebParam(name="type") String type);
 	
    }
 

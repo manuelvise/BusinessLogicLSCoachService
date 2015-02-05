@@ -8,19 +8,19 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for healthMeasureHistory complex type.
+ * <p>Java class for goal complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="healthMeasureHistory">
+ * &lt;complexType name="goal">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="idMeasureHistory" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="deadline" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
+ *         &lt;element name="idGoal" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element ref="{http://ws.storage.introsde/}measureDefinition" minOccurs="0"/>
  *         &lt;element ref="{http://ws.storage.introsde/}person" minOccurs="0"/>
- *         &lt;element name="timestamp" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="value" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -31,37 +31,61 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "healthMeasureHistory", propOrder = {
-    "idMeasureHistory",
+@XmlType(name = "goal", propOrder = {
+    "deadline",
+    "idGoal",
     "measureDefinition",
     "person",
-    "timestamp",
     "value"
 })
-public class HealthMeasureHistory {
+public class Goal {
 
-    protected int idMeasureHistory;
+    protected Long deadline;
+    protected int idGoal;
     @XmlElement(namespace = "http://ws.storage.introsde/")
     protected MeasureDefinition measureDefinition;
     @XmlElement(namespace = "http://ws.storage.introsde/")
     protected Person person;
-    protected String timestamp;
     protected String value;
 
     /**
-     * Gets the value of the idMeasureHistory property.
+     * Gets the value of the deadline property.
      * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
-    public int getIdMeasureHistory() {
-        return idMeasureHistory;
+    public Long getDeadline() {
+        return deadline;
     }
 
     /**
-     * Sets the value of the idMeasureHistory property.
+     * Sets the value of the deadline property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void setDeadline(Long value) {
+        this.deadline = value;
+    }
+
+    /**
+     * Gets the value of the idGoal property.
      * 
      */
-    public void setIdMeasureHistory(int value) {
-        this.idMeasureHistory = value;
+    public int getIdGoal() {
+        return idGoal;
+    }
+
+    /**
+     * Sets the value of the idGoal property.
+     * 
+     */
+    public void setIdGoal(int value) {
+        this.idGoal = value;
     }
 
     /**
@@ -110,30 +134,6 @@ public class HealthMeasureHistory {
      */
     public void setPerson(Person value) {
         this.person = value;
-    }
-
-    /**
-     * Gets the value of the timestamp property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTimestamp() {
-        return timestamp;
-    }
-
-    /**
-     * Sets the value of the timestamp property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTimestamp(String value) {
-        this.timestamp = value;
     }
 
     /**

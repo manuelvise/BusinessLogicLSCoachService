@@ -3,7 +3,6 @@ package introsde.storage.ws;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -17,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://ws.storage.introsde/}measureDefinition" minOccurs="0"/>
+ *         &lt;element name="measureDefinitionJson" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,35 +27,34 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "getCompleteMeasureTypeFromNameResponse", propOrder = {
-    "measureDefinition"
+    "measureDefinitionJson"
 })
 public class GetCompleteMeasureTypeFromNameResponse {
 
-    @XmlElement(namespace = "http://ws.storage.introsde/")
-    protected MeasureDefinition measureDefinition;
+    protected String measureDefinitionJson;
 
     /**
-     * Gets the value of the measureDefinition property.
+     * Gets the value of the measureDefinitionJson property.
      * 
      * @return
      *     possible object is
-     *     {@link MeasureDefinition }
+     *     {@link String }
      *     
      */
-    public MeasureDefinition getMeasureDefinition() {
-        return measureDefinition;
+    public String getMeasureDefinitionJson() {
+        return measureDefinitionJson;
     }
 
     /**
-     * Sets the value of the measureDefinition property.
+     * Sets the value of the measureDefinitionJson property.
      * 
      * @param value
      *     allowed object is
-     *     {@link MeasureDefinition }
+     *     {@link String }
      *     
      */
-    public void setMeasureDefinition(MeasureDefinition value) {
-        this.measureDefinition = value;
+    public void setMeasureDefinitionJson(String value) {
+        this.measureDefinitionJson = value;
     }
 
 }

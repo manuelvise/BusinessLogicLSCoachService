@@ -3,20 +3,21 @@ package introsde.storage.ws;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for readPersonRemoteHistory complex type.
+ * <p>Java class for readPersonGoalForMeasureTypeResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="readPersonRemoteHistory">
+ * &lt;complexType name="readPersonGoalForMeasureTypeResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="accessToken" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="Goal" type="{http://ws.storage.introsde/}goal" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,35 +27,36 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "readPersonRemoteHistory", propOrder = {
-    "accessToken"
+@XmlType(name = "readPersonGoalForMeasureTypeResponse", propOrder = {
+    "goal"
 })
-public class ReadPersonRemoteHistory {
+public class ReadPersonGoalForMeasureTypeResponse {
 
-    protected String accessToken;
+    @XmlElement(name = "Goal")
+    protected Goal goal;
 
     /**
-     * Gets the value of the accessToken property.
+     * Gets the value of the goal property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Goal }
      *     
      */
-    public String getAccessToken() {
-        return accessToken;
+    public Goal getGoal() {
+        return goal;
     }
 
     /**
-     * Sets the value of the accessToken property.
+     * Sets the value of the goal property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Goal }
      *     
      */
-    public void setAccessToken(String value) {
-        this.accessToken = value;
+    public void setGoal(Goal value) {
+        this.goal = value;
     }
 
 }

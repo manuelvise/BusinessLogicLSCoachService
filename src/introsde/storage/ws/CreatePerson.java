@@ -3,7 +3,6 @@ package introsde.storage.ws;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -17,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://ws.storage.introsde/}person" minOccurs="0"/>
+ *         &lt;element name="personJson" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,35 +27,34 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "createPerson", propOrder = {
-    "person"
+    "personJson"
 })
 public class CreatePerson {
 
-    @XmlElement(namespace = "http://ws.storage.introsde/")
-    protected Person person;
+    protected String personJson;
 
     /**
-     * Gets the value of the person property.
+     * Gets the value of the personJson property.
      * 
      * @return
      *     possible object is
-     *     {@link Person }
+     *     {@link String }
      *     
      */
-    public Person getPerson() {
-        return person;
+    public String getPersonJson() {
+        return personJson;
     }
 
     /**
-     * Sets the value of the person property.
+     * Sets the value of the personJson property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Person }
+     *     {@link String }
      *     
      */
-    public void setPerson(Person value) {
-        this.person = value;
+    public void setPersonJson(String value) {
+        this.personJson = value;
     }
 
 }

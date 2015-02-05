@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for saveMeasureDefinition complex type.
+ * <p>Java class for readPersonGoals complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="saveMeasureDefinition">
+ * &lt;complexType name="readPersonGoals">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="measureDefinitionJson" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="personId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,35 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "saveMeasureDefinition", propOrder = {
-    "measureDefinitionJson"
+@XmlType(name = "readPersonGoals", propOrder = {
+    "personId"
 })
-public class SaveMeasureDefinition {
+public class ReadPersonGoals {
 
-    protected String measureDefinitionJson;
+    protected Long personId;
 
     /**
-     * Gets the value of the measureDefinitionJson property.
+     * Gets the value of the personId property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Long }
      *     
      */
-    public String getMeasureDefinitionJson() {
-        return measureDefinitionJson;
+    public Long getPersonId() {
+        return personId;
     }
 
     /**
-     * Sets the value of the measureDefinitionJson property.
+     * Sets the value of the personId property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Long }
      *     
      */
-    public void setMeasureDefinitionJson(String value) {
-        this.measureDefinitionJson = value;
+    public void setPersonId(Long value) {
+        this.personId = value;
     }
 
 }

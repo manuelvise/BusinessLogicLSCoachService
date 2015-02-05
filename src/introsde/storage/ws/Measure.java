@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element ref="{http://ws.storage.introsde/}measureDefinition" minOccurs="0"/>
- *         &lt;element name="timestamp" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
+ *         &lt;element name="timestamp" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="value" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -38,7 +38,7 @@ public class Measure {
 
     @XmlElement(namespace = "http://ws.storage.introsde/")
     protected MeasureDefinition measureDefinition;
-    protected Long timestamp;
+    protected String timestamp;
     protected String value;
 
     /**
@@ -70,10 +70,10 @@ public class Measure {
      * 
      * @return
      *     possible object is
-     *     {@link Long }
+     *     {@link String }
      *     
      */
-    public Long getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
@@ -82,10 +82,10 @@ public class Measure {
      * 
      * @param value
      *     allowed object is
-     *     {@link Long }
+     *     {@link String }
      *     
      */
-    public void setTimestamp(Long value) {
+    public void setTimestamp(String value) {
         this.timestamp = value;
     }
 

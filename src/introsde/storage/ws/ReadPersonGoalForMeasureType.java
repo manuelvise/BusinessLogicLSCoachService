@@ -7,17 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for measureDefinition complex type.
+ * <p>Java class for readPersonGoalForMeasureType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="measureDefinition">
+ * &lt;complexType name="readPersonGoalForMeasureType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="idMeasureDef" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="measureName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="personId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="measureType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -28,55 +27,37 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "measureDefinition", propOrder = {
-    "idMeasureDef",
-    "measureName",
+@XmlType(name = "readPersonGoalForMeasureType", propOrder = {
+    "personId",
     "measureType"
 })
-public class MeasureDefinition {
+public class ReadPersonGoalForMeasureType {
 
-    protected int idMeasureDef;
-    protected String measureName;
+    protected Long personId;
     protected String measureType;
 
     /**
-     * Gets the value of the idMeasureDef property.
-     * 
-     */
-    public int getIdMeasureDef() {
-        return idMeasureDef;
-    }
-
-    /**
-     * Sets the value of the idMeasureDef property.
-     * 
-     */
-    public void setIdMeasureDef(int value) {
-        this.idMeasureDef = value;
-    }
-
-    /**
-     * Gets the value of the measureName property.
+     * Gets the value of the personId property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Long }
      *     
      */
-    public String getMeasureName() {
-        return measureName;
+    public Long getPersonId() {
+        return personId;
     }
 
     /**
-     * Sets the value of the measureName property.
+     * Sets the value of the personId property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Long }
      *     
      */
-    public void setMeasureName(String value) {
-        this.measureName = value;
+    public void setPersonId(Long value) {
+        this.personId = value;
     }
 
     /**
