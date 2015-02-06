@@ -69,12 +69,12 @@ public class BusinessLogicLSCoachImpl implements BusinessLogicLSCoach {
 		for (HealthMeasureHistory healthMeasureHistory : listWeightsMeasure) {
 
 			Measure measure = new Measure();
-			measure.setMeasureDefinition(measureDefinition);
+			measure.setMDefinition(measureDefinition);
 			measure.setTimestamp(healthMeasureHistory.getTimestamp());
 			measure.setValue(healthMeasureHistory.getValue());
 
 			storageServicePeople
-					.savePersonMeasurement(p.getIdPerson(), measure);
+					.updatePersonMeasurement(p.getIdPerson(), measure);
 		}
 
 		return true;

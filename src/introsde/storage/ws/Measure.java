@@ -3,7 +3,6 @@ package introsde.storage.ws;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -17,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://ws.storage.introsde/}measureDefinition" minOccurs="0"/>
+ *         &lt;element name="mDefinition" type="{http://ws.storage.introsde/}measureDefinition" minOccurs="0"/>
  *         &lt;element name="timestamp" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="value" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
@@ -30,39 +29,38 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "measure", propOrder = {
-    "measureDefinition",
+    "mDefinition",
     "timestamp",
     "value"
 })
 public class Measure {
 
-    @XmlElement(namespace = "http://ws.storage.introsde/")
-    protected MeasureDefinition measureDefinition;
+    protected MeasureDefinition mDefinition;
     protected String timestamp;
     protected String value;
 
     /**
-     * Gets the value of the measureDefinition property.
+     * Gets the value of the mDefinition property.
      * 
      * @return
      *     possible object is
      *     {@link MeasureDefinition }
      *     
      */
-    public MeasureDefinition getMeasureDefinition() {
-        return measureDefinition;
+    public MeasureDefinition getMDefinition() {
+        return mDefinition;
     }
 
     /**
-     * Sets the value of the measureDefinition property.
+     * Sets the value of the mDefinition property.
      * 
      * @param value
      *     allowed object is
      *     {@link MeasureDefinition }
      *     
      */
-    public void setMeasureDefinition(MeasureDefinition value) {
-        this.measureDefinition = value;
+    public void setMDefinition(MeasureDefinition value) {
+        this.mDefinition = value;
     }
 
     /**
