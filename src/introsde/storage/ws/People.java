@@ -27,30 +27,6 @@ public interface People {
 
     /**
      * 
-     * @param value
-     * @param measureType
-     * @param personId
-     * @param deadline
-     * @return
-     *     returns introsde.storage.ws.Goal
-     */
-    @WebMethod
-    @WebResult(name = "Goal", targetNamespace = "")
-    @RequestWrapper(localName = "saveGoal", targetNamespace = "http://ws.storage.introsde/", className = "introsde.storage.ws.SaveGoal")
-    @ResponseWrapper(localName = "saveGoalResponse", targetNamespace = "http://ws.storage.introsde/", className = "introsde.storage.ws.SaveGoalResponse")
-    @Action(input = "http://ws.storage.introsde/People/saveGoalRequest", output = "http://ws.storage.introsde/People/saveGoalResponse")
-    public Goal saveGoal(
-        @WebParam(name = "personId", targetNamespace = "")
-        Long personId,
-        @WebParam(name = "measureType", targetNamespace = "")
-        String measureType,
-        @WebParam(name = "value", targetNamespace = "")
-        String value,
-        @WebParam(name = "deadline", targetNamespace = "")
-        Long deadline);
-
-    /**
-     * 
      * @param personId
      * @return
      *     returns introsde.storage.ws.Person
@@ -120,6 +96,60 @@ public interface People {
     public int deletePerson(
         @WebParam(name = "personId", targetNamespace = "")
         Long personId);
+
+    /**
+     * 
+     * @param minValue
+     * @param measureType
+     * @param maxValue
+     * @return
+     *     returns java.util.List<introsde.storage.ws.Person>
+     */
+    @WebMethod
+    @WebResult(name = "ListOfMeasureOnRange", targetNamespace = "")
+    @RequestWrapper(localName = "readPersonListByMeasurementRange", targetNamespace = "http://ws.storage.introsde/", className = "introsde.storage.ws.ReadPersonListByMeasurementRange")
+    @ResponseWrapper(localName = "readPersonListByMeasurementRangeResponse", targetNamespace = "http://ws.storage.introsde/", className = "introsde.storage.ws.ReadPersonListByMeasurementRangeResponse")
+    @Action(input = "http://ws.storage.introsde/People/readPersonListByMeasurementRangeRequest", output = "http://ws.storage.introsde/People/readPersonListByMeasurementRangeResponse")
+    public List<Person> readPersonListByMeasurementRange(
+        @WebParam(name = "measureType", targetNamespace = "")
+        String measureType,
+        @WebParam(name = "maxValue", targetNamespace = "")
+        String maxValue,
+        @WebParam(name = "minValue", targetNamespace = "")
+        String minValue);
+
+    /**
+     * 
+     * @param typeMeasure
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(name = "measureDefinitionJson", targetNamespace = "")
+    @RequestWrapper(localName = "getCompleteMeasureTypeFromName", targetNamespace = "http://ws.storage.introsde/", className = "introsde.storage.ws.GetCompleteMeasureTypeFromName")
+    @ResponseWrapper(localName = "getCompleteMeasureTypeFromNameResponse", targetNamespace = "http://ws.storage.introsde/", className = "introsde.storage.ws.GetCompleteMeasureTypeFromNameResponse")
+    @Action(input = "http://ws.storage.introsde/People/getCompleteMeasureTypeFromNameRequest", output = "http://ws.storage.introsde/People/getCompleteMeasureTypeFromNameResponse")
+    public String getCompleteMeasureTypeFromName(
+        @WebParam(name = "typeMeasure", targetNamespace = "")
+        String typeMeasure);
+
+    /**
+     * 
+     * @param measure
+     * @param personId
+     * @return
+     *     returns introsde.storage.ws.HealthMeasureHistory
+     */
+    @WebMethod
+    @WebResult(name = "singleMeasureSaved", targetNamespace = "")
+    @RequestWrapper(localName = "saveIfnotExistPersonMeasurement", targetNamespace = "http://ws.storage.introsde/", className = "introsde.storage.ws.SaveIfnotExistPersonMeasurement")
+    @ResponseWrapper(localName = "saveIfnotExistPersonMeasurementResponse", targetNamespace = "http://ws.storage.introsde/", className = "introsde.storage.ws.SaveIfnotExistPersonMeasurementResponse")
+    @Action(input = "http://ws.storage.introsde/People/saveIfnotExistPersonMeasurementRequest", output = "http://ws.storage.introsde/People/saveIfnotExistPersonMeasurementResponse")
+    public HealthMeasureHistory saveIfnotExistPersonMeasurement(
+        @WebParam(name = "personId", targetNamespace = "")
+        Long personId,
+        @WebParam(name = "measure", targetNamespace = "")
+        Measure measure);
 
     /**
      * 
@@ -282,42 +312,6 @@ public interface People {
 
     /**
      * 
-     * @param minValue
-     * @param measureType
-     * @param maxValue
-     * @return
-     *     returns java.util.List<introsde.storage.ws.Person>
-     */
-    @WebMethod
-    @WebResult(name = "ListOfMeasureOnRange", targetNamespace = "")
-    @RequestWrapper(localName = "readPersonListByMeasurementRange", targetNamespace = "http://ws.storage.introsde/", className = "introsde.storage.ws.ReadPersonListByMeasurementRange")
-    @ResponseWrapper(localName = "readPersonListByMeasurementRangeResponse", targetNamespace = "http://ws.storage.introsde/", className = "introsde.storage.ws.ReadPersonListByMeasurementRangeResponse")
-    @Action(input = "http://ws.storage.introsde/People/readPersonListByMeasurementRangeRequest", output = "http://ws.storage.introsde/People/readPersonListByMeasurementRangeResponse")
-    public List<Person> readPersonListByMeasurementRange(
-        @WebParam(name = "measureType", targetNamespace = "")
-        String measureType,
-        @WebParam(name = "maxValue", targetNamespace = "")
-        String maxValue,
-        @WebParam(name = "minValue", targetNamespace = "")
-        String minValue);
-
-    /**
-     * 
-     * @param typeMeasure
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(name = "measureDefinitionJson", targetNamespace = "")
-    @RequestWrapper(localName = "getCompleteMeasureTypeFromName", targetNamespace = "http://ws.storage.introsde/", className = "introsde.storage.ws.GetCompleteMeasureTypeFromName")
-    @ResponseWrapper(localName = "getCompleteMeasureTypeFromNameResponse", targetNamespace = "http://ws.storage.introsde/", className = "introsde.storage.ws.GetCompleteMeasureTypeFromNameResponse")
-    @Action(input = "http://ws.storage.introsde/People/getCompleteMeasureTypeFromNameRequest", output = "http://ws.storage.introsde/People/getCompleteMeasureTypeFromNameResponse")
-    public String getCompleteMeasureTypeFromName(
-        @WebParam(name = "typeMeasure", targetNamespace = "")
-        String typeMeasure);
-
-    /**
-     * 
      * @param accessToken
      * @return
      *     returns java.lang.Long
@@ -345,6 +339,30 @@ public interface People {
     public Person readRemotePerson(
         @WebParam(name = "accessToken", targetNamespace = "")
         String accessToken);
+
+    /**
+     * 
+     * @param value
+     * @param measureType
+     * @param personId
+     * @param deadline
+     * @return
+     *     returns introsde.storage.ws.Goal
+     */
+    @WebMethod
+    @WebResult(name = "Goal", targetNamespace = "")
+    @RequestWrapper(localName = "saveGoal", targetNamespace = "http://ws.storage.introsde/", className = "introsde.storage.ws.SaveGoal")
+    @ResponseWrapper(localName = "saveGoalResponse", targetNamespace = "http://ws.storage.introsde/", className = "introsde.storage.ws.SaveGoalResponse")
+    @Action(input = "http://ws.storage.introsde/People/saveGoalRequest", output = "http://ws.storage.introsde/People/saveGoalResponse")
+    public Goal saveGoal(
+        @WebParam(name = "personId", targetNamespace = "")
+        Long personId,
+        @WebParam(name = "measureType", targetNamespace = "")
+        String measureType,
+        @WebParam(name = "value", targetNamespace = "")
+        String value,
+        @WebParam(name = "deadline", targetNamespace = "")
+        Long deadline);
 
     /**
      * 
@@ -378,23 +396,5 @@ public interface People {
         Long personId,
         @WebParam(name = "measureType", targetNamespace = "")
         String measureType);
-
-    /**
-     * 
-     * @param measure
-     * @param personId
-     * @return
-     *     returns introsde.storage.ws.LifeStatus
-     */
-    @WebMethod
-    @WebResult(name = "singleMeasureSaved", targetNamespace = "")
-    @RequestWrapper(localName = "updatePersonMeasurement", targetNamespace = "http://ws.storage.introsde/", className = "introsde.storage.ws.UpdatePersonMeasurement")
-    @ResponseWrapper(localName = "updatePersonMeasurementResponse", targetNamespace = "http://ws.storage.introsde/", className = "introsde.storage.ws.UpdatePersonMeasurementResponse")
-    @Action(input = "http://ws.storage.introsde/People/updatePersonMeasurementRequest", output = "http://ws.storage.introsde/People/updatePersonMeasurementResponse")
-    public LifeStatus updatePersonMeasurement(
-        @WebParam(name = "personId", targetNamespace = "")
-        Long personId,
-        @WebParam(name = "measure", targetNamespace = "")
-        Measure measure);
 
 }

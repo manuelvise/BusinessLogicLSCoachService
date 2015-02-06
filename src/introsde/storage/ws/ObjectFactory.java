@@ -28,7 +28,6 @@ public class ObjectFactory {
     private final static QName _ReadPersonMeasurementResponse_QNAME = new QName("http://ws.storage.introsde/", "readPersonMeasurementResponse");
     private final static QName _ReadPersonLocalHistory_QNAME = new QName("http://ws.storage.introsde/", "readPersonLocalHistory");
     private final static QName _SaveMeasureDefinition_QNAME = new QName("http://ws.storage.introsde/", "saveMeasureDefinition");
-    private final static QName _UpdatePersonMeasurement_QNAME = new QName("http://ws.storage.introsde/", "updatePersonMeasurement");
     private final static QName _ReadRemotePersonId_QNAME = new QName("http://ws.storage.introsde/", "readRemotePersonId");
     private final static QName _UpdatePersonMeasure_QNAME = new QName("http://ws.storage.introsde/", "updatePersonMeasure");
     private final static QName _ReadPersonResponse_QNAME = new QName("http://ws.storage.introsde/", "readPersonResponse");
@@ -38,6 +37,7 @@ public class ObjectFactory {
     private final static QName _SaveMeasureDefinitionResponse_QNAME = new QName("http://ws.storage.introsde/", "saveMeasureDefinitionResponse");
     private final static QName _Goal_QNAME = new QName("http://ws.storage.introsde/", "goal");
     private final static QName _UpdatePerson_QNAME = new QName("http://ws.storage.introsde/", "updatePerson");
+    private final static QName _SaveIfnotExistPersonMeasurementResponse_QNAME = new QName("http://ws.storage.introsde/", "saveIfnotExistPersonMeasurementResponse");
     private final static QName _MeasureDefinition_QNAME = new QName("http://ws.storage.introsde/", "measureDefinition");
     private final static QName _SavePersonMeasurementResponse_QNAME = new QName("http://ws.storage.introsde/", "savePersonMeasurementResponse");
     private final static QName _ReadPersonGoalForMeasureTypeResponse_QNAME = new QName("http://ws.storage.introsde/", "readPersonGoalForMeasureTypeResponse");
@@ -45,7 +45,7 @@ public class ObjectFactory {
     private final static QName _DeletePersonResponse_QNAME = new QName("http://ws.storage.introsde/", "deletePersonResponse");
     private final static QName _GetCompleteMeasureTypeFromName_QNAME = new QName("http://ws.storage.introsde/", "getCompleteMeasureTypeFromName");
     private final static QName _ReadPersonMeasureByDatesResponse_QNAME = new QName("http://ws.storage.introsde/", "readPersonMeasureByDatesResponse");
-    private final static QName _UpdatePersonMeasurementResponse_QNAME = new QName("http://ws.storage.introsde/", "updatePersonMeasurementResponse");
+    private final static QName _SaveIfnotExistPersonMeasurement_QNAME = new QName("http://ws.storage.introsde/", "saveIfnotExistPersonMeasurement");
     private final static QName _ReadMeasureTypesResponse_QNAME = new QName("http://ws.storage.introsde/", "readMeasureTypesResponse");
     private final static QName _ReadRemotePerson_QNAME = new QName("http://ws.storage.introsde/", "readRemotePerson");
     private final static QName _ReadPersonListByMeasurementRangeResponse_QNAME = new QName("http://ws.storage.introsde/", "readPersonListByMeasurementRangeResponse");
@@ -314,14 +314,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UpdatePersonMeasurement }
-     * 
-     */
-    public UpdatePersonMeasurement createUpdatePersonMeasurement() {
-        return new UpdatePersonMeasurement();
-    }
-
-    /**
      * Create an instance of {@link UpdatePersonMeasure }
      * 
      */
@@ -394,6 +386,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SaveIfnotExistPersonMeasurementResponse }
+     * 
+     */
+    public SaveIfnotExistPersonMeasurementResponse createSaveIfnotExistPersonMeasurementResponse() {
+        return new SaveIfnotExistPersonMeasurementResponse();
+    }
+
+    /**
      * Create an instance of {@link SavePersonMeasurementResponse }
      * 
      */
@@ -450,11 +450,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UpdatePersonMeasurementResponse }
+     * Create an instance of {@link SaveIfnotExistPersonMeasurement }
      * 
      */
-    public UpdatePersonMeasurementResponse createUpdatePersonMeasurementResponse() {
-        return new UpdatePersonMeasurementResponse();
+    public SaveIfnotExistPersonMeasurement createSaveIfnotExistPersonMeasurement() {
+        return new SaveIfnotExistPersonMeasurement();
     }
 
     /**
@@ -523,15 +523,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.storage.introsde/", name = "saveMeasureDefinition")
     public JAXBElement<SaveMeasureDefinition> createSaveMeasureDefinition(SaveMeasureDefinition value) {
         return new JAXBElement<SaveMeasureDefinition>(_SaveMeasureDefinition_QNAME, SaveMeasureDefinition.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdatePersonMeasurement }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.storage.introsde/", name = "updatePersonMeasurement")
-    public JAXBElement<UpdatePersonMeasurement> createUpdatePersonMeasurement(UpdatePersonMeasurement value) {
-        return new JAXBElement<UpdatePersonMeasurement>(_UpdatePersonMeasurement_QNAME, UpdatePersonMeasurement.class, null, value);
     }
 
     /**
@@ -616,6 +607,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SaveIfnotExistPersonMeasurementResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.storage.introsde/", name = "saveIfnotExistPersonMeasurementResponse")
+    public JAXBElement<SaveIfnotExistPersonMeasurementResponse> createSaveIfnotExistPersonMeasurementResponse(SaveIfnotExistPersonMeasurementResponse value) {
+        return new JAXBElement<SaveIfnotExistPersonMeasurementResponse>(_SaveIfnotExistPersonMeasurementResponse_QNAME, SaveIfnotExistPersonMeasurementResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link MeasureDefinition }{@code >}}
      * 
      */
@@ -679,12 +679,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdatePersonMeasurementResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SaveIfnotExistPersonMeasurement }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://ws.storage.introsde/", name = "updatePersonMeasurementResponse")
-    public JAXBElement<UpdatePersonMeasurementResponse> createUpdatePersonMeasurementResponse(UpdatePersonMeasurementResponse value) {
-        return new JAXBElement<UpdatePersonMeasurementResponse>(_UpdatePersonMeasurementResponse_QNAME, UpdatePersonMeasurementResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://ws.storage.introsde/", name = "saveIfnotExistPersonMeasurement")
+    public JAXBElement<SaveIfnotExistPersonMeasurement> createSaveIfnotExistPersonMeasurement(SaveIfnotExistPersonMeasurement value) {
+        return new JAXBElement<SaveIfnotExistPersonMeasurement>(_SaveIfnotExistPersonMeasurement_QNAME, SaveIfnotExistPersonMeasurement.class, null, value);
     }
 
     /**

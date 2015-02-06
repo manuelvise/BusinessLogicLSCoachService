@@ -74,7 +74,7 @@ public class BusinessLogicLSCoachImpl implements BusinessLogicLSCoach {
 			measure.setValue(healthMeasureHistory.getValue());
 
 			storageServicePeople
-					.updatePersonMeasurement(p.getIdPerson(), measure);
+					.saveIfnotExistPersonMeasurement(p.getIdPerson(), measure);
 		}
 
 		return true;
