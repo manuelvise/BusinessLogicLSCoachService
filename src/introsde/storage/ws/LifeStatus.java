@@ -3,7 +3,6 @@ package introsde.storage.ws;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -18,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="idMeasure" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element ref="{http://ws.storage.introsde/}measureDefinition" minOccurs="0"/>
+ *         &lt;element name="measureDefinition" type="{http://ws.storage.introsde/}measureDefinition" minOccurs="0"/>
  *         &lt;element name="value" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -37,7 +36,6 @@ import javax.xml.bind.annotation.XmlType;
 public class LifeStatus {
 
     protected int idMeasure;
-    @XmlElement(namespace = "http://ws.storage.introsde/")
     protected MeasureDefinition measureDefinition;
     protected String value;
 

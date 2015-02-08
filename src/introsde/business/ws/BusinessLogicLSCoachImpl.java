@@ -145,5 +145,34 @@ public class BusinessLogicLSCoachImpl implements BusinessLogicLSCoach {
 		
 		return storageServicePeople.saveMeasureDefinition(mDefToSaveJson);
 	}
+	
+	
+	@Override
+	public Boolean syncActivitiesToDB(String accessToken) {
+
+		List<HealthMeasureHistory> listWeightsMeasure = storageServicePeople
+				.readPersonRemoteWeightHistory(accessToken);
+
+		Long pId = storageServicePeople.readRemotePersonId(accessToken);
+		Person p = storageServicePeople.readPerson(pId);
+
+		if (p == null) {
+			p = syncPersonToDB(accessToken);
+		}
+
+
+		for (HealthMeasureHistory healthMeasureHistory : listWeightsMeasure) {
+
+			Measure measure = new Measure();
+			measure.setMDefinition(healthMeasureHistory.getMeasureDefinition());
+			measure.setTimestamp(healthMeasureHistory.getTimestamp());
+			measure.setValue(healthMeasureHistory.getValue());
+
+			storageServicePeople
+					.saveIfnotExistPersonMeasurement(p.getIdPerson(), measure);
+		}
+
+		return true;
+	}
 
 }

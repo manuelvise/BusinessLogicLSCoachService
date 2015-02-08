@@ -18,8 +18,13 @@ import javax.jws.soap.SOAPBinding.Use;
 public interface BusinessLogicLSCoach {
 	
 	@WebMethod(operationName="syncWeightToDB")
-    @WebResult(name="fitnessActivities") 
+    @WebResult(name="boolean") 
     public Boolean syncWeightsToDB(@WebParam(name="accessToken") String accessToken);
+
+	@WebMethod(operationName="syncActivitiesToDB")
+    @WebResult(name="boolean") 
+    public Boolean syncActivitiesToDB(@WebParam(name="accessToken") String accessToken);
+	
 	
 	@WebMethod(operationName="syncPersonToDB")
     @WebResult(name="personSynchronized") 

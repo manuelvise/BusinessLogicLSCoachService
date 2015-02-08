@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for updatePerson complex type.
+ * <p>Java class for readPersonRemoteActivityHistory complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="updatePerson">
+ * &lt;complexType name="readPersonRemoteActivityHistory">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="person" type="{http://ws.storage.introsde/}person" minOccurs="0"/>
+ *         &lt;element name="accessToken" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,35 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "updatePerson", propOrder = {
-    "person"
+@XmlType(name = "readPersonRemoteActivityHistory", propOrder = {
+    "accessToken"
 })
-public class UpdatePerson {
+public class ReadPersonRemoteActivityHistory {
 
-    protected Person person;
+    protected String accessToken;
 
     /**
-     * Gets the value of the person property.
+     * Gets the value of the accessToken property.
      * 
      * @return
      *     possible object is
-     *     {@link Person }
+     *     {@link String }
      *     
      */
-    public Person getPerson() {
-        return person;
+    public String getAccessToken() {
+        return accessToken;
     }
 
     /**
-     * Sets the value of the person property.
+     * Sets the value of the accessToken property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Person }
+     *     {@link String }
      *     
      */
-    public void setPerson(Person value) {
-        this.person = value;
+    public void setAccessToken(String value) {
+        this.accessToken = value;
     }
 
 }
