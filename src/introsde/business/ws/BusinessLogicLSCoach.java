@@ -34,5 +34,10 @@ public interface BusinessLogicLSCoach {
     @WebResult(name="newMeasureDefinition") 
     public MeasureDefinition setupNewDefinitionMeasure(@WebParam(name="name") String name, @WebParam(name="type") String type);
 	
+	
+	@WebMethod(operationName="getPeopleWithLocalLifeStatusCalculation")
+    @WebResult(name="peopleWithLifeStatusCalculation") 
+    public List<Person> getPeopleWithLocalLifeStatusCalculation();
+
    }
 

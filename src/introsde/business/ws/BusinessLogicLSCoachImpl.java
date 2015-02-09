@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import introsde.business.util.TotalActivitiesCalculator;
 import introsde.storage.ws.HealthMeasureHistory;
+import introsde.storage.ws.LifeStatus;
 import introsde.storage.ws.Measure;
 import introsde.storage.ws.MeasureDefinition;
 import introsde.storage.ws.People;
@@ -150,8 +152,8 @@ public class BusinessLogicLSCoachImpl implements BusinessLogicLSCoach {
 	@Override
 	public Boolean syncActivitiesToDB(String accessToken) {
 
-		List<HealthMeasureHistory> listWeightsMeasure = storageServicePeople
-				.readPersonRemoteWeightHistory(accessToken);
+		List<HealthMeasureHistory> listActivitiesMeasure = storageServicePeople
+				.readPersonRemoteActivityHistory(accessToken);
 
 		Long pId = storageServicePeople.readRemotePersonId(accessToken);
 		Person p = storageServicePeople.readPerson(pId);
@@ -160,8 +162,10 @@ public class BusinessLogicLSCoachImpl implements BusinessLogicLSCoach {
 			p = syncPersonToDB(accessToken);
 		}
 
+		storageServicePeople.deletePersonMeasurementActivities(pId);
+		storageServicePeople.deletePersonLifeStatusActivities(pId);
 
-		for (HealthMeasureHistory healthMeasureHistory : listWeightsMeasure) {
+		for (HealthMeasureHistory healthMeasureHistory : listActivitiesMeasure) {
 
 			Measure measure = new Measure();
 			measure.setMDefinition(healthMeasureHistory.getMeasureDefinition());
@@ -173,6 +177,34 @@ public class BusinessLogicLSCoachImpl implements BusinessLogicLSCoach {
 		}
 
 		return true;
+	}
+
+	@Override
+	public List<Person> getPeopleWithLocalLifeStatusCalculation() {
+		
+		List<Person> people = storageServicePeople.getPersonList();
+		
+		if(people.size()>0){
+			
+			for (Person person : people) {
+				List<LifeStatus> newListLifeStatusAfterRecalculation = new ArrayList<LifeStatus>();
+				
+				List<LifeStatus> lifeStatusList = person.getLifeStatus();
+				
+				TotalActivitiesCalculator lsCalculator = new TotalActivitiesCalculator(lifeStatusList);
+				newListLifeStatusAfterRecalculation = lsCalculator.calculate();
+				
+				lifeStatusList.clear();
+				lifeStatusList.addAll(newListLifeStatusAfterRecalculation);
+				
+				
+			}
+			
+		}
+		
+		
+		
+		return people;
 	}
 
 }
